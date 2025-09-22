@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VCIOUUSCUSTOMZ</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #000;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 40px;
+    }
+
+    header h1 {
+      font-family: 'UnifrakturCook', cursive;
+      font-size: 3rem;
+      background: linear-gradient(90deg, #4f46e5, #9333ea);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0;
+    }
+
+    header p {
+      color: #aaa;
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #60a5fa;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .product {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+    }
+
+    .product h3 {
+      margin: 15px 0 10px;
+      font-size: 1.2rem;
+      color: #a78bfa;
+    }
+
+    .product p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact a {
+      color: #60a5fa;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      border-top: 1px solid #222;
+      color: #777;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>VCIOUUSCUSTOMZ</h1>
+    <p>Customized Snow Globe Cups & Business Logo Hoodies</p>
+  </header>
+
+  <section>
+    <h2>About</h2>
+    <p style="text-align:center; max-width:700px; margin:auto;">
+      At <strong>VCIOUUSCUSTOMZ</strong>, we specialize in creating unique, 
+      handcrafted snow globe cups and stylish business logo hoodies. 
+      Every item is designed to be bold, personalized, and one of a kind.
+    </p>
+  </section>
+
+  <section>
+    <h2>Products</h2>
+    <div class="products">
+      <div class="product">
+        <h3>Snow Globe Cups</h3>
+        <p>Custom-designed snow globe tumblers that sparkle with your unique style.</p>
+      </div>
+      <div class="product">
+        <h3>Logo Hoodies</h3>
+        <p>Cozy hoodies featuring your business logo — a perfect mix of comfort and branding.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Contact</h2>
+    <p>Have a custom order request? Reach out anytime:</p>
+    <p><a href="mailto:vciouus71@aol.com">vciouus71@aol.com</a></p>
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> VCIOUUSCUSTOMZ. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
