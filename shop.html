@@ -9,84 +9,52 @@
       background-color: black;
       color: white;
       font-family: Arial, sans-serif;
+      text-align: center;
       margin: 0;
       padding: 0;
-      text-align: center;
-    }
-
-    /* Gradient text like your logo */
-    .gradient-text {
-      font-size: 2.5em;
-      font-weight: bold;
-      background: linear-gradient(to right, #8a2be2, #1e90ff); /* purple → blue */
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
 
     nav {
-      background-color: #111;
-      padding: 15px;
+      margin: 20px 0;
     }
 
     nav a {
-      color: white;
-      text-decoration: none;
       margin: 0 15px;
+      font-size: 1.2em;
       font-weight: bold;
-    }
-
-    nav a:hover {
-      color: #8a2be2; /* purple hover */
-    }
-
-    .product {
-      margin: 40px auto;
-      padding: 20px;
-      border: 1px solid #333;
-      width: 300px;
-      border-radius: 8px;
-      background: #111;
-    }
-
-    .product h2 {
-      font-size: 1.5em;
+      text-decoration: none;
       background: linear-gradient(to right, #8a2be2, #1e90ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .product img {
-      width: 100%;
-      border-radius: 5px;
+    h1 {
+      margin-top: 40px;
+      font-size: 2.5em;
+      background: linear-gradient(to right, #8a2be2, #1e90ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-  </style>
-</head>
-<body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="shop.html">Shop</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
 
-  <h1 class="gradient-text">VCIOUUS CUSTOMZ SHOP</h1>
+    h2 {
+      margin-top: 30px;
+      font-size: 2em;
+      background: linear-gradient(to right, #8a2be2, #1e90ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-  <!-- Product Example -->
-  <div class="product">
-    <h2>Snow Globe Cup</h2>
-    <img src="your-product-image.jpg" alt="Snow Globe Cup">
-    <p>Custom snow globe tumbler cup.</p>
-    <!-- Shopify Buy Button code will go here -->
-    <div id="buy-button-1"></div>
-  </div>
+    .product-card {
+      background-color: #111;
+      border: 2px solid #444;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      width: 280px;
+      text-align: center;
+    }
 
-  <div class="product">
-    <h2>Logo Hoodie</h2>
-    <img src="your-hoodie-image.jpg" alt="VCIOUUS CUSTOMZ Hoodie">
-    <p>Comfortable hoodie with VCIOUUS CUSTOMZ logo.</p>
-    <!-- Shopify Buy Button code will go here -->
-    <div id="buy-button-2"></div>
-  </div>
-
-</body>
-</html>
+    .product-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px
