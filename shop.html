@@ -29,7 +29,7 @@
     }
 
     h1 {
-      margin-top: 40px;
+      margin-top: 20px;
       font-size: 2.5em;
       background: linear-gradient(to right, #8a2be2, #1e90ff);
       -webkit-background-clip: text;
@@ -42,6 +42,12 @@
       background: linear-gradient(to right, #8a2be2, #1e90ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+
+    .logo {
+      margin-top: 30px;
+      max-width: 300px;
+      width: 80%;
     }
 
     .product-card {
@@ -57,4 +63,72 @@
     .product-card img {
       width: 100%;
       border-radius: 8px;
-      margin-bottom: 15px
+      margin-bottom: 15px;
+    }
+
+    .product-card h3 {
+      margin: 10px 0;
+      font-size: 1.5em;
+      background: linear-gradient(to right, #8a2be2, #1e90ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .product-card p {
+      margin: 5px 0;
+      font-size: 1.2em;
+      color: #ccc;
+    }
+
+    .buy-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      background: linear-gradient(to right, #8a2be2, #1e90ff);
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .coming-soon {
+      margin-top: 10px;
+      font-size: 1.2em;
+      font-weight: bold;
+      background: linear-gradient(to right, #8a2be2, #1e90ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- Logo at the top -->
+  <img src="logo.png" alt="VCIOUUS CUSTOMZ Logo" class="logo">
+
+  <h1>Shop</h1>
+
+  <!-- Ready To Ship Section -->
+  <h2>Ready To Ship</h2>
+  <div class="product-card">
+    <img src="placeholder.png" alt="Product Image">
+    <h3>Product Name</h3>
+    <p>$00.00</p>
+    <a href="#" class="buy-button">Coming Soon</a>
+  </div>
+
+  <!-- Snow Globe Cups Section -->
+  <h2>Snow Globe Cups</h2>
+  <p class="coming-soon">Coming Soon</p>
+
+  <!-- Hoodies Section -->
+  <h2>Hoodies</h2>
+  <p class="coming-soon">Coming Soon</p>
+
+</body>
+</html>
