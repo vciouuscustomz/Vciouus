@@ -6,76 +6,46 @@
   <title>VCIOUUS CUSTOMZ</title>
   <style>
     body {
-      background-color: black;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
       margin: 0;
       padding: 0;
+      background-color: black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
-
+    img {
+      max-width: 80%;
+      height: auto;
+    }
     nav {
-      margin: 20px 0;
+      position: absolute;
+      top: 20px;
+      right: 20px;
     }
-
     nav a {
       margin: 0 15px;
       font-size: 1.2em;
       font-weight: bold;
       text-decoration: none;
-      background: linear-gradient(to right, #8a2be2, #1e90ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #1e90ff; /* solid blue font */
     }
-
-    h1 {
-      margin-top: 20px;
-      font-size: 3em;
-      background: linear-gradient(to right, #8a2be2, #1e90ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    p {
+    .tagline {
+      font-family: "Brush Script MT", cursive;
+      color: #1e90ff; /* blue */
       font-size: 1.2em;
-      margin: 20px auto;
-      width: 80%;
-      color: #ccc;
-    }
-
-    .shop-button {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 15px 40px;
-      border-radius: 8px;
-      font-size: 1.3em;
-      font-weight: bold;
-      text-decoration: none;
-      background: linear-gradient(to right, #8a2be2, #1e90ff);
-      color: white;
-    }
-
-    .logo {
-      margin-top: 30px;
-      max-width: 300px;
-      width: 80%;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
   <nav>
-    <a href="index.html">Home</a>
     <a href="shop.html">Shop</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- Logo at the top -->
-  <img src="logo.png" alt="VCIOUUS CUSTOMZ Logo" class="logo">
-
-  <h1>Welcome to VCIOUUS CUSTOMZ</h1>
-  <p>Custom snow globe cups and hoodies with a unique style. Quality you can trust.</p>
-
-  <!-- Shop Now button -->
-  <a href="shop.html" class="shop-button">Shop Now</a>
+  <img src="logo.png" alt="VCIOUUS CUSTOMZ Logo">
+  <p class="tagline">God bless you, thank you for being here</p>
 </body>
 </html>
