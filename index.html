@@ -7,74 +7,91 @@
   <style>
     body {
       background-color: black;
-      color: white;
-      font-family: "Old English Text MT", serif;
+      color: #1e90ff;
+      font-family: "Old English Text MT", "Times New Roman", serif;
+      text-align: center;
       margin: 0;
       padding: 0;
     }
 
-    /* Top navigation */
+    /* Fixed navigation */
     nav {
-      position: absolute;
+      position: fixed;
       top: 20px;
-      right: 30px;
-    }
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: #4da6ff;
-      font-size: 20px;
-    }
-    nav a:hover {
-      text-decoration: underline;
+      right: 20px;
+      background: black;
+      padding: 10px;
+      border-radius: 8px;
     }
 
-    .container {
-      text-align: center;
-      padding-top: 80px; /* so text/logo don’t overlap nav */
-    }
-    .top-message, .thank-you {
-      color: #4da6ff;
-      font-size: 20px;
-      margin: 20px 0;
-    }
-    .logo img {
-      width: 700px;  /* big logo */
-      max-width: 95%;
-      margin: 40px 0;
-    }
-    .thank-you {
-      font-size: 26px;
+    nav a {
+      margin: 0 15px;
+      font-size: 1.2em;
       font-weight: bold;
+      text-decoration: none;
+      color: #1e90ff;
+    }
+
+    nav form {
+      display: inline-block;
+    }
+
+    nav input[type="text"] {
+      padding: 5px;
+      border: 2px solid #1e90ff;
+      border-radius: 5px;
+      background: black;
+      color: #1e90ff;
+    }
+
+    nav button {
+      padding: 5px 10px;
+      background: #1e90ff;
+      color: black;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    img {
+      max-width: 50%;
+      height: auto;
+      margin-top: 120px; /* extra space so logo doesn’t overlap nav */
+    }
+
+    .tagline {
+      font-size: 1.2em;
+      margin-top: 15px;
+    }
+
+    .processing {
+      font-size: 1.1em;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
-
-  <!-- Navigation in top-right -->
+  <!-- Navigation -->
   <nav>
     <a href="shop.html">Shop</a>
     <a href="contact.html">Contact</a>
+
+    <!-- Search Bar -->
+    <form action="https://www.google.com/search" method="get" target="_blank">
+      <input type="text" name="q" placeholder="Search...">
+      <input type="hidden" name="sitesearch" value="https://vciouuscustomz.com">
+      <button type="submit">Search</button>
+    </form>
   </nav>
 
-  <div class="container">
-    <!-- Top Message -->
-    <div class="top-message">
-      7–14 business days processing time. <br>
-      Add decal (optional) and cup to your cart. <br>
-      Add glitter colors to notes or shoot me an email.
-    </div>
+  <!-- Processing Time -->
+  <p class="processing">7–14 business days processing time. Add decal (optional) and cup to your cart. Add glitter colors to notes or email me.</p>
 
-    <!-- Logo Centered -->
-    <div class="logo">
-      <img src="logo.png" alt="VCIOUUS CUSTOMZ Logo">
-    </div>
+  <!-- Logo -->
+  <img src="logo.png" alt="VCIOUUS CUSTOMZ Logo">
 
-    <!-- Thank You Message -->
-    <div class="thank-you">
-      Thank you for being here, God bless
-    </div>
-  </div>
-
+  <!-- Tagline -->
+  <p class="tagline">Thank you for being here, God bless</p>
 </body>
 </html>
