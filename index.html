@@ -2,78 +2,80 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Fix zoom issue -->
   <title>VCIOUUS CUSTOMZ</title>
   <style>
     body {
       background-color: black;
-      color: blue;
+      color: #1e90ff;
       font-family: "Old English Text MT", "Times New Roman", serif;
       margin: 0;
       text-align: center;
     }
 
-    /* Top navigation bar */
+    /* Navigation bar */
     nav {
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      padding: 20px;
+      padding: 15px 25px;
       background: black;
       position: relative;
     }
 
     nav a {
-      color: blue;
+      color: #1e90ff;
       margin-left: 20px;
       text-decoration: none;
       font-weight: bold;
-      font-size: 18px;
+      font-size: 20px;
     }
 
     nav span {
       margin-left: 20px;
       cursor: pointer;
-      font-size: 18px;
+      font-size: 20px;
     }
 
     /* Processing message */
     .processing {
-      margin-top: 20px;
-      margin-bottom: 40px;
-      font-size: 16px;
-      line-height: 1.4;
+      margin: 20px auto 40px auto;
+      font-size: 18px;
+      line-height: 1.5;
+      max-width: 90%;
     }
 
     /* Logo */
     .logo {
-      margin-top: 60px;
+      margin-top: 40px;
     }
 
     .logo img {
-      width: 400px;  /* larger logo */
-      max-width: 90%;
+      width: 500px;   /* Large logo */
+      max-width: 95%; /* Scale on mobile */
       height: auto;
     }
 
     /* Footer */
     footer {
-      margin-top: 50px;
-      font-size: 20px;
+      margin-top: 60px;
+      font-size: 22px;
     }
 
-    /* Search box hidden by default */
+    /* Search box (hidden until clicked) */
     #searchBox {
       display: none;
-      margin-top: 10px;
+      margin-top: 15px;
     }
 
     #searchBox input {
-      padding: 5px;
+      padding: 8px;
+      font-size: 16px;
     }
 
     #searchBox button {
-      padding: 5px;
-      background: blue;
+      padding: 8px 12px;
+      background: #1e90ff;
       color: white;
       border: none;
       cursor: pointer;
