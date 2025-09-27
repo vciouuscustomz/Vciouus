@@ -2,140 +2,90 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Fix zoom issue -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VCIOUUS CUSTOMZ</title>
   <style>
     body {
-      background-color: black;
-      color: #1e90ff;
-      font-family: "Old English Text MT", "Times New Roman", serif;
       margin: 0;
+      background-color: black;
+      color: #00aaff;
+      font-family: 'Old English Text MT', serif;
       text-align: center;
     }
 
-    /* Navigation bar */
-    nav {
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      padding: 15px 25px;
-      background: black;
-      position: relative;
+      padding: 10px 20px;
+      background-color: black;
+      z-index: 1000;
     }
 
-    nav a {
-      color: #1e90ff;
-      margin-left: 20px;
+    header a {
+      color: #00aaff;
       text-decoration: none;
-      font-weight: bold;
-      font-size: 20px;
-    }
-
-    nav span {
       margin-left: 20px;
-      cursor: pointer;
-      font-size: 20px;
+      font-size: 18px;
     }
 
-    /* Processing message */
-    .processing {
-      margin: 20px auto 40px auto;
+    header a:hover {
+      text-decoration: underline;
+    }
+
+    /* Search Icon */
+    #search-icon {
+      cursor: pointer;
       font-size: 18px;
-      line-height: 1.5;
-      max-width: 90%;
+      margin-left: 15px;
     }
 
     /* Logo */
     .logo {
-      margin-top: 40px;
+      margin-top: 120px; /* spacing so logo isn't under header */
     }
 
     .logo img {
-      width: 500px;   /* Large logo */
-      max-width: 95%; /* Scale on mobile */
-      height: auto;
+      width: 180px; /* adjust logo size */
+      max-width: 90%;
     }
 
     /* Footer */
     footer {
-      margin-top: 60px;
-      font-size: 22px;
-    }
-
-    /* Search box (hidden until clicked) */
-    #searchBox {
-      display: none;
-      margin-top: 15px;
-    }
-
-    #searchBox input {
-      padding: 8px;
+      margin-top: 50px;
       font-size: 16px;
-    }
-
-    #searchBox button {
-      padding: 8px 12px;
-      background: #1e90ff;
-      color: white;
-      border: none;
-      cursor: pointer;
+      color: #0077cc;
     }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <a href="shop.html">Shop</a>
-    <a href="contact.html">Contact</a>
-    <span onclick="toggleSearch()">🔍</span>
-  </nav>
 
-  <!-- Processing message -->
-  <div class="processing">
-    7–14 business days processing time. Add decal (optional) and cup to your cart. 
-    Add glitter colors to notes or email me.
-  </div>
+  <!-- Header -->
+  <header>
+    <a href="#shop">Shop</a>
+    <a href="#contact">Contact</a>
+    <!-- Shopify Search -->
+    <span id="search-icon" onclick="window.location.href='https://vciouuscustomz.myshopify.com/search';">🔍</span>
+  </header>
 
-  <!-- Search Box -->
-  <div id="searchBox">
-    <input type="text" id="searchInput" placeholder="Search pages...">
-    <button onclick="searchSite()">Go</button>
-  </div>
-
-  <!-- Logo -->
+  <!-- Logo Section -->
   <div class="logo">
-    <img src="logo.png" alt="VCIOUUS CUSTOMZ Logo">
+    <img src="your-logo-file.png" alt="VCIOUUS CUSTOMZ Logo">
+    <h1>VCIOUUS CUSTOMZ</h1>
   </div>
+
+  <!-- Info Text -->
+  <p>7–14 business days processing time. Add decal (optional) and cup to your cart. Add glitter colors to notes or email me.</p>
 
   <!-- Footer -->
   <footer>
     Thank you for being here, God bless
   </footer>
 
-  <script>
-    // Pages to search
-    const sitePages = [
-      { title: "Home", url: "index.html" },
-      { title: "Shop", url: "shop.html" },
-      { title: "Contact", url: "contact.html" },
-      { title: "Ready to Ship", url: "ready-to-ship.html" }
-    ];
-
-    function toggleSearch() {
-      const box = document.getElementById("searchBox");
-      box.style.display = (box.style.display === "none" || box.style.display === "") ? "block" : "none";
-    }
-
-    function searchSite() {
-      let query = document.getElementById("searchInput").value.toLowerCase();
-      let match = sitePages.find(page => page.title.toLowerCase().includes(query));
-      
-      if (match) {
-        window.location.href = match.url;
-      } else {
-        alert("No page found. Try: Home, Shop, Contact, or Ready to Ship.");
-      }
-    }
-  </script>
 </body>
 </html>
