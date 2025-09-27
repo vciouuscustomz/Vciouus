@@ -32,36 +32,38 @@
       color: #1e90ff;
     }
 
-    nav form {
+    /* Search icon + bar */
+    #search-form {
       display: inline-block;
+      position: relative;
     }
 
-    nav input[type="text"] {
+    #search-input {
+      display: none;
       padding: 5px;
       border: 2px solid #1e90ff;
       border-radius: 5px;
       background: black;
       color: #1e90ff;
+      margin-left: 8px;
     }
 
-    nav button {
-      padding: 5px 10px;
-      background: #1e90ff;
-      color: black;
-      font-weight: bold;
+    #search-btn {
+      background: none;
       border: none;
-      border-radius: 5px;
       cursor: pointer;
+      font-size: 1.3em;
+      color: #1e90ff;
     }
 
     img {
-      max-width: 50%;
+      max-width: 70%; /* Larger logo size */
       height: auto;
-      margin-top: 120px; /* extra space so logo doesn’t overlap nav */
+      margin-top: 120px; /* space for nav */
     }
 
     .tagline {
-      font-size: 1.2em;
+      font-size: 1.4em;
       margin-top: 15px;
     }
 
@@ -77,11 +79,11 @@
     <a href="shop.html">Shop</a>
     <a href="contact.html">Contact</a>
 
-    <!-- Search Bar -->
-    <form action="https://www.google.com/search" method="get" target="_blank">
-      <input type="text" name="q" placeholder="Search...">
+    <!-- Search -->
+    <form id="search-form" action="https://www.google.com/search" method="get" target="_blank">
+      <button id="search-btn" type="button">🔍</button>
+      <input type="text" id="search-input" name="q" placeholder="Search...">
       <input type="hidden" name="sitesearch" value="https://vciouuscustomz.com">
-      <button type="submit">Search</button>
     </form>
   </nav>
 
@@ -93,5 +95,18 @@
 
   <!-- Tagline -->
   <p class="tagline">Thank you for being here, God bless</p>
+
+  <!-- Script for search toggle -->
+  <script>
+    document.getElementById("search-btn").addEventListener("click", function() {
+      var input = document.getElementById("search-input");
+      if (input.style.display === "inline-block") {
+        input.style.display = "none";
+      } else {
+        input.style.display = "inline-block";
+        input.focus();
+      }
+    });
+  </script>
 </body>
 </html>
