@@ -6,55 +6,42 @@
   <title>VCIOUUS CUSTOMZ</title>
   <style>
     body {
+      background-color: black;
+      color: white;
+      font-family: "Old English Text MT", serif;
+      text-align: center;
       margin: 0;
       padding: 0;
-      background-color: black;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
     }
-    img {
-      max-width: 80%;
-      height: auto;
+    .top-message, .thank-you {
+      color: #4da6ff; /* light blue for readability */
+      font-size: 20px;
+      margin: 20px 0;
     }
-    nav {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-    }
-    nav a {
-      margin: 0 15px;
-      font-size: 1.2em;
-      font-weight: bold;
-      text-decoration: none;
-      color: #1e90ff; /* solid blue font */
-    }
-    .tagline {
-      font-family: "Brush Script MT", cursive;
-      color: #1e90ff; /* blue */
-      font-size: 1.2em;
-      margin-top: 10px;
+    .logo img {
+      width: 350px; /* adjust size as needed */
+      max-width: 90%;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="shop.html">Shop</a>
-    <a href="contact.html">Contact</a>
-  </nav>
 
-  <!-- Tagline messages above the logo -->
-  <div class="tagline">
-    <p>Processing time is 7-14 business days</p>
-    <p>Make sure to add a cup and decal (optional) to your cart. Add glitter colors to notes or email me</p>
+  <!-- Top Message -->
+  <div class="top-message">
+    7–14 business days processing time. <br>
+    Add decal (optional) and cup to your cart. <br>
+    Add glitter colors to notes or shoot me an email.
   </div>
 
-  <!-- Logo -->
-  <img src="logo.png" alt="VCIOUUS CUSTOMZ Logo">
+  <!-- Logo Centered -->
+  <div class="logo">
+    <img src="logo.png" alt="VCIOUUS CUSTOMZ Logo">
+  </div>
 
-  <!-- Tagline below logo -->
-  <p class="tagline">God bless you, thank you for being here</p>
+  <!-- Thank You Message -->
+  <div class="thank-you">
+    Thank you for being here, God bless
+  </div>
+
 </body>
 </html>
