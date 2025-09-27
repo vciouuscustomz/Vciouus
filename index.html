@@ -9,17 +9,37 @@
       background-color: black;
       color: white;
       font-family: "Old English Text MT", serif;
-      text-align: center;
       margin: 0;
       padding: 0;
     }
+
+    /* Top navigation */
+    nav {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #4da6ff;
+      font-size: 20px;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      text-align: center;
+      padding-top: 80px; /* so text/logo don’t overlap nav */
+    }
     .top-message, .thank-you {
-      color: #4da6ff; /* light blue */
+      color: #4da6ff;
       font-size: 20px;
       margin: 20px 0;
     }
     .logo img {
-      width: 700px;  /* MUCH larger logo */
+      width: 700px;  /* big logo */
       max-width: 95%;
       margin: 40px 0;
     }
@@ -27,44 +47,34 @@
       font-size: 26px;
       font-weight: bold;
     }
-    nav {
-      margin-top: 30px;
-    }
-    nav a {
-      margin: 0 20px;
-      text-decoration: none;
-      color: #4da6ff;
-      font-size: 22px;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
   </style>
 </head>
 <body>
 
-  <!-- Top Message -->
-  <div class="top-message">
-    7–14 business days processing time. <br>
-    Add decal (optional) and cup to your cart. <br>
-    Add glitter colors to notes or shoot me an email.
-  </div>
-
-  <!-- Logo Centered -->
-  <div class="logo">
-    <img src="logo.png" alt="VCIOUUS CUSTOMZ Logo">
-  </div>
-
-  <!-- Thank You Message -->
-  <div class="thank-you">
-    Thank you for being here, God bless
-  </div>
-
-  <!-- Navigation -->
+  <!-- Navigation in top-right -->
   <nav>
     <a href="shop.html">Shop</a>
     <a href="contact.html">Contact</a>
   </nav>
+
+  <div class="container">
+    <!-- Top Message -->
+    <div class="top-message">
+      7–14 business days processing time. <br>
+      Add decal (optional) and cup to your cart. <br>
+      Add glitter colors to notes or shoot me an email.
+    </div>
+
+    <!-- Logo Centered -->
+    <div class="logo">
+      <img src="logo.png" alt="VCIOUUS CUSTOMZ Logo">
+    </div>
+
+    <!-- Thank You Message -->
+    <div class="thank-you">
+      Thank you for being here, God bless
+    </div>
+  </div>
 
 </body>
 </html>
