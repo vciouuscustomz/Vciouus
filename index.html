@@ -12,15 +12,14 @@
       text-align: center;
     }
 
-    header {
-      padding: 20px;
-      font-size: 16px;
-    }
-
+    /* Top navigation bar */
     nav {
-      position: absolute;
-      top: 20px;
-      right: 20px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 20px;
+      background: black;
+      position: relative;
     }
 
     nav a {
@@ -28,29 +27,41 @@
       margin-left: 20px;
       text-decoration: none;
       font-weight: bold;
+      font-size: 18px;
     }
 
     nav span {
       margin-left: 20px;
       cursor: pointer;
+      font-size: 18px;
     }
 
+    /* Processing message */
+    .processing {
+      margin-top: 20px;
+      margin-bottom: 40px;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    /* Logo */
     .logo {
-      margin-top: 100px;
+      margin-top: 60px;
     }
 
     .logo img {
-      width: 300px; /* Adjust logo size */
-      max-width: 80%;
+      width: 400px;  /* larger logo */
+      max-width: 90%;
       height: auto;
     }
 
+    /* Footer */
     footer {
       margin-top: 50px;
       font-size: 20px;
     }
 
-    /* Hidden search box */
+    /* Search box hidden by default */
     #searchBox {
       display: none;
       margin-top: 10px;
@@ -70,23 +81,31 @@
   </style>
 </head>
 <body>
-  <header>
-    <div>7–14 business days processing time. Add decal (optional) and cup to your cart. Add glitter colors to notes or email me.</div>
-    <nav>
-      <a href="shop.html">Shop</a>
-      <a href="contact.html">Contact</a>
-      <span onclick="toggleSearch()">🔍</span>
-    </nav>
-    <div id="searchBox">
-      <input type="text" id="searchInput" placeholder="Search pages...">
-      <button onclick="searchSite()">Go</button>
-    </div>
-  </header>
+  <!-- Navigation -->
+  <nav>
+    <a href="shop.html">Shop</a>
+    <a href="contact.html">Contact</a>
+    <span onclick="toggleSearch()">🔍</span>
+  </nav>
 
+  <!-- Processing message -->
+  <div class="processing">
+    7–14 business days processing time. Add decal (optional) and cup to your cart. 
+    Add glitter colors to notes or email me.
+  </div>
+
+  <!-- Search Box -->
+  <div id="searchBox">
+    <input type="text" id="searchInput" placeholder="Search pages...">
+    <button onclick="searchSite()">Go</button>
+  </div>
+
+  <!-- Logo -->
   <div class="logo">
     <img src="logo.png" alt="VCIOUUS CUSTOMZ Logo">
   </div>
 
+  <!-- Footer -->
   <footer>
     Thank you for being here, God bless
   </footer>
