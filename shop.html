@@ -7,35 +7,61 @@
   <style>
     body {
       background-color: black;
-      color: white;
+      color: #00aaff; /* bright blue font */
       font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 40px;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      display: flex;
+      justify-content: flex-end;
+      background: #111;
+      padding: 15px 30px;
+    }
+    header a {
+      margin-left: 20px;
+      color: #00aaff; /* blue links */
+      text-decoration: none;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+    header a:hover {
+      color: #8a2be2; /* purple-blue hover */
     }
     h1 {
-      color: #8a2be2; /* purple-blue like your logo */
+      text-align: center;
+      color: #00aaff; /* blue heading */
+      margin-top: 40px;
     }
     .section {
-      margin: 20px 0;
+      margin: 20px auto;
+      width: 80%;
+      max-width: 400px;
     }
     .section a {
       display: block;
       padding: 20px;
       background: #222;
-      border: 2px solid #8a2be2;
+      border: 2px solid #00aaff;
       border-radius: 8px;
-      color: white;
+      color: #00aaff; /* blue button text */
       text-decoration: none;
       font-size: 20px;
       transition: 0.3s;
+      text-align: center;
     }
     .section a:hover {
-      background: #8a2be2;
+      background: #00aaff;
       color: black;
     }
   </style>
 </head>
 <body>
+
+  <header>
+    <a href="index.html">Home</a>
+    <a href="contact.html">Contact</a>
+  </header>
 
   <h1>Our Shop</h1>
 
