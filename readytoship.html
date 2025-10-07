@@ -86,6 +86,7 @@
   } else {
     loadScript();
   }
+
   function loadScript() {
     var script = document.createElement('script');
     script.async = true;
@@ -93,123 +94,95 @@
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
     script.onload = ShopifyBuyInit;
   }
+
   function ShopifyBuyInit() {
     var client = ShopifyBuy.buildClient({
       domain: 'xxavib-p3.myshopify.com',
       storefrontAccessToken: '31a24c9085e9de5b76ed5e9d7d75dd3f',
     });
+
     ShopifyBuy.UI.onReady(client).then(function (ui) {
       ui.createComponent('collection', {
         id: '662820258086',
         node: document.getElementById('collection-component-1759051363868'),
         moneyFormat: '%24%7B%7Bamount%7D%7D',
         options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(50% - 30px)", /* two per row */
-          "margin-left": "30px",
-          "margin-bottom": "50px",
-          "width": "calc(50% - 30px)"
-        },
-        "text-align": "center",
-        "background-color": "black",
-        "position": "relative"
-      },
-      "imgWrapper": {
-        "padding-top": "0",
-        "position": "relative",
-        "overflow": "hidden",
-        "border-radius": "12px"
-      },
-      "img": {
-        "width": "100%",
-        "height": "auto",
-        "max-height": "450px", /* makes them bigger */
-        "object-fit": "cover",
-        "border-radius": "12px",
-        "transition": "transform 0.3s ease"
-      },
-      "title": {
-        "font-family": "PT Serif, serif",
-        "font-weight": "normal",
-        "color": "#00c6fd",
-        "margin-top": "10px"
-      },
-      "button": {
-        "font-family": "Quantico, sans-serif",
-        "font-weight": "bold",
-        ":hover": {
-          "background-color": "#0047e6"
-        },
-        "background-color": "#004fff",
-        ":focus": {
-          "background-color": "#0047e6"
-        },
-        "border-radius": "22px",
-        "padding-left": "15px",
-        "padding-right": "15px",
-        "margin-top": "10px"
-      },
-      "price": {
-        "color": "#ff0000"
-      },
-      "compareAt": {
-        "color": "#ff0000"
-      },
-      "unitPrice": {
-        "color": "#ff0000"
-      }
-    },
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "PT Serif",
-      "Quantico"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "display": "flex",
-        "flex-wrap": "wrap",
-        "justify-content": "center",
-        "gap": "40px"
-      }
-    }
-  },
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Quantico, sans-serif",
-        "font-weight": "bold",
-        ":hover": {
-          "background-color": "#0047e6"
-        },
-        "background-color": "#004fff",
-        ":focus": {
-          "background-color": "#0047e6"
-        },
-        "border-radius": "22px"
-      },
-      "title": {"color": "#1324ff"},
-      "header": {"color": "#1324ff"},
-      "lineItems": {"color": "#1324ff"},
-      "subtotalText": {"color": "#1324ff"},
-      "subtotal": {"color": "#1324ff"}
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout",
-      "noteDescription": " Custom details (glitter color etc)"
-    },
-    "contents": {"note": true},
-    "popup": false,
-    "googleFonts": ["Quantico"]
-  }
-},
+          "product": {
+            "iframe": false,
+            "styles": {
+              "product": {
+                "@media (min-width: 601px)": {
+                  "width": "calc(50% - 20px)",
+                  "margin": "10px",
+                  "display": "inline-block",
+                  "vertical-align": "top"
+                },
+                "@media (max-width: 600px)": {
+                  "width": "100%",
+                  "margin": "0 0 30px 0",
+                  "display": "block"
+                },
+                "text-align": "center",
+                "background-color": "black"
+              },
+              "imgWrapper": {
+                "padding-top": "0",
+                "position": "relative",
+                "overflow": "hidden",
+                "border-radius": "12px"
+              },
+              "img": {
+                "width": "100%",
+                "height": "auto",
+                "max-height": "450px",
+                "object-fit": "cover",
+                "border-radius": "12px",
+                "transition": "transform 0.3s ease"
+              },
+              "title": {
+                "color": "#00aaff",
+                "margin-top": "10px"
+              },
+              "button": {
+                "background-color": "#00aaff",
+                "color": "black",
+                "border-radius": "20px",
+                "font-weight": "bold",
+                "padding": "8px 20px",
+                ":hover": {"background-color": "#8a2be2"}
+              },
+              "price": {"color": "#ff0000"}
+            },
+            "text": {"button": "Add to cart"}
+          },
+          "productSet": {
+            "iframe": false,
+            "styles": {
+              "products": {
+                "display": "flex",
+                "flex-wrap": "wrap",
+                "justify-content": "center",
+                "align-items": "flex-start",
+                "gap": "40px"
+              }
+            }
+          },
+          "cart": {
+            "styles": {
+              "button": {
+                "background-color": "#00aaff",
+                "color": "black",
+                ":hover": {"background-color": "#8a2be2"}
+              }
+            },
+            "text": {
+              "button": "Checkout",
+              "noteDescription": " Custom details (glitter color etc)"
+            },
+            "contents": {"note": true},
+            "popup": false
+          }
+        }
       });
     });
   }
