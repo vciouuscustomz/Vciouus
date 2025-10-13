@@ -3,371 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Decals - VCIOUUS CUSTOMZ</title>
+  <title>Decal Themes - VCIOUUS CUSTOMZ</title>
   <style>
     body {
       background-color: black;
-      color: #00aaff; /* blue font */
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      display: flex;
-      justify-content: flex-end;
-      background: #111;
-      padding: 15px 30px;
-    }
-    header a {
-      margin-left: 20px;
       color: #00aaff;
-      text-decoration: none;
-      font-size: 16px;
-      transition: 0.3s;
-    }
-    header a:hover {
-      color: #8a2be2;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 40px;
     }
     h1 {
-      text-align: center;
+      margin-bottom: 40px;
+    }
+    .category-button {
+      display: block;
+      border: 2px solid #00aaff;
       color: #00aaff;
-      margin: 30px 0;
+      text-decoration: none;
+      padding: 15px;
+      width: 250px;
+      margin: 15px auto;
+      border-radius: 8px;
+      transition: background-color 0.3s, color 0.3s;
     }
-    .content {
-      text-align: center;
-      padding: 20px;
-    }
-
-    /* Shopify overrides 👇 */
-    .shopify-buy-frame,
-    .shopify-buy__collection,
-    .shopify-buy__product {
-      background-color: black !important;
-    }
-
-    .shopify-buy__product-title,
-    .shopify-buy__product__price {
-      color: #00aaff !important;
-    }
-
-    .shopify-buy__btn {
-      background-color: #00aaff !important;
-      color: black !important;
-      border-radius: 6px !important;
-    }
-
-    .shopify-buy__btn:hover {
-      background-color: #8a2be2 !important;
-      color: white !important;
+    .category-button:hover {
+      background-color: #00aaff;
+      color: black;
     }
   </style>
 </head>
 <body>
+  <h1>Decal Themes</h1>
 
-  <header>
-    <a href="index.html">Home</a>
-    <a href="shop.html">Shop</a>
-    <a href="contact.html">Contact</a>
-  </header>
+  <a href="decals-holidays.html" class="category-button">🎄 Holidays</a>
+  <a href="decals-sports.html" class="category-button">🏈 Sports</a>
+  <a href="decals-characters.html" class="category-button">🧍 Characters / People</a>
+  <a href="decals-aesthetic.html" class="category-button">✨ Aesthetic</a>
+  <a href="decals-animals.html" class="category-button">🐾 Animals</a>
 
-  <h1>Decals</h1>
-
-  <div class="content">
-    <div id='collection-component-1759050054805'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
-    }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xxavib-p3.myshopify.com',
-      storefrontAccessToken: '31a24c9085e9de5b76ed5e9d7d75dd3f',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('collection', {
-        id: '662820913446',
-        node: document.getElementById('collection-component-1759050054805'),
-        moneyFormat: '%24%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "calc(50% - 40px)",
-          "margin-left": "40px",
-          "margin-bottom": "50px",
-          "width": "calc(50% - 40px)"
-        },
-        "img": {
-          "height": "calc(100% - 15px)",
-          "position": "absolute",
-          "left": "0",
-          "right": "0",
-          "top": "0"
-        },
-        "imgWrapper": {
-          "padding-top": "calc(75% + 15px)",
-          "position": "relative",
-          "height": "0"
-        }
-      },
-      "title": {
-        "font-family": "PT Serif, serif",
-        "font-weight": "normal",
-        "color": "#00c6fd"
-      },
-      "button": {
-        "font-family": "Quantico, sans-serif",
-        "font-weight": "bold",
-        ":hover": {
-          "background-color": "#0047e6"
-        },
-        "background-color": "#004fff",
-        ":focus": {
-          "background-color": "#0047e6"
-        },
-        "border-radius": "22px",
-        "padding-left": "15px",
-        "padding-right": "15px"
-      },
-      "price": {
-        "color": "#ff0000"
-      },
-      "compareAt": {
-        "color": "#ff0000"
-      },
-      "unitPrice": {
-        "color": "#ff0000"
-      }
-    },
-    "text": {
-      "button": "Add to cart"
-    },
-    "googleFonts": [
-      "PT Serif",
-      "Quantico"
-    ]
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-40px"
-        }
-      }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Quantico, sans-serif",
-        "font-weight": "bold",
-        ":hover": {
-          "background-color": "#0047e6"
-        },
-        "background-color": "#004fff",
-        ":focus": {
-          "background-color": "#0047e6"
-        },
-        "border-radius": "22px",
-        "padding-left": "15px",
-        "padding-right": "15px"
-      },
-      "title": {
-        "font-family": "Helvetica Neue, sans-serif",
-        "font-weight": "bold",
-        "font-size": "26px",
-        "color": "#4c4c4c"
-      },
-      "price": {
-        "font-family": "Helvetica Neue, sans-serif",
-        "font-weight": "normal",
-        "font-size": "18px",
-        "color": "#4c4c4c"
-      },
-      "compareAt": {
-        "font-family": "Helvetica Neue, sans-serif",
-        "font-weight": "normal",
-        "font-size": "15.299999999999999px",
-        "color": "#4c4c4c"
-      },
-      "unitPrice": {
-        "font-family": "Helvetica Neue, sans-serif",
-        "font-weight": "normal",
-        "font-size": "15.299999999999999px",
-        "color": "#4c4c4c"
-      }
-    },
-    "googleFonts": [
-      "Quantico"
-    ],
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Quantico, sans-serif",
-        "font-weight": "bold",
-        ":hover": {
-          "background-color": "#0047e6"
-        },
-        "background-color": "#004fff",
-        ":focus": {
-          "background-color": "#0047e6"
-        },
-        "border-radius": "22px"
-      },
-      "title": {
-        "color": "#1324ff"
-      },
-      "header": {
-        "color": "#1324ff"
-      },
-      "lineItems": {
-        "color": "#1324ff"
-      },
-      "subtotalText": {
-        "color": "#1324ff"
-      },
-      "subtotal": {
-        "color": "#1324ff"
-      },
-      "notice": {
-        "color": "#1324ff"
-      },
-      "currency": {
-        "color": "#1324ff"
-      },
-      "close": {
-        "color": "#1324ff",
-        ":hover": {
-          "color": "#1324ff"
-        }
-      },
-      "empty": {
-        "color": "#1324ff"
-      },
-      "noteDescription": {
-        "color": "#1324ff"
-      },
-      "discountText": {
-        "color": "#1324ff"
-      },
-      "discountIcon": {
-        "fill": "#1324ff"
-      },
-      "discountAmount": {
-        "color": "#1324ff"
-      }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout",
-      "noteDescription": " Custom details (glitter color etc)"
-    },
-    "contents": {
-      "note": true
-    },
-    "popup": false,
-    "googleFonts": [
-      "Quantico"
-    ]
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Quantico, sans-serif",
-        "font-weight": "bold",
-        "background-color": "#004fff",
-        ":hover": {
-          "background-color": "#0047e6"
-        },
-        ":focus": {
-          "background-color": "#0047e6"
-        }
-      }
-    },
-    "googleFonts": [
-      "Quantico"
-    ]
-  },
-  "lineItem": {
-    "styles": {
-      "variantTitle": {
-        "color": "#1324ff"
-      },
-      "title": {
-        "color": "#1324ff"
-      },
-      "price": {
-        "color": "#1324ff"
-      },
-      "fullPrice": {
-        "color": "#1324ff"
-      },
-      "discount": {
-        "color": "#1324ff"
-      },
-      "discountIcon": {
-        "fill": "#1324ff"
-      },
-      "quantity": {
-        "color": "#1324ff"
-      },
-      "quantityIncrement": {
-        "color": "#1324ff",
-        "border-color": "#1324ff"
-      },
-      "quantityDecrement": {
-        "color": "#1324ff",
-        "border-color": "#1324ff"
-      },
-      "quantityInput": {
-        "color": "#1324ff",
-        "border-color": "#1324ff"
-      }
-    }
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>>
-  </div>
-
+  <br><br>
+  <a href="shop.html" style="color:#00aaff;">⬅ Back to Our Shop</a>
 </body>
 </html>
