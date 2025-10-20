@@ -44,10 +44,6 @@
 
   <br><br>
   <a href="shop.html" style="color:#00aaff;">⬅ Back to Our Shop</a>
-</body>
-</html>
-
-<!-- Place this at the bottom of decals.html, just before </body> -->
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -67,19 +63,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Assign IDs to decals automatically
-  const decals = document.querySelectorAll('.decal'); // make sure your decals have class="decal"
-  decals.forEach((decal, index) => {
-    decal.id = (index + 1).toString(); // IDs: 1, 2, 3, ...
+  // Wrap all decal images in divs and assign IDs
+  const decalImages = document.querySelectorAll('#decalsContainer img');
+  decalImages.forEach((img, index) => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'decal';
+    wrapper.id = (index + 1).toString();
+    img.parentNode.insertBefore(wrapper, img);
+    wrapper.appendChild(img);
   });
+
+  // Smooth scroll to decal function
+  function scrollToDecal(id) {
+    const decal = document.getElementById(id);
+    if (decal) {
+      decal.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 
   // Run the search
   function runSearch() {
     const query = searchInput.value.trim();
 
-    // If query is a number 1–88, jump to that decal
-    if (/^\d+$/.test(query) && parseInt(query) >= 1 && parseInt(query) <= decals.length) {
-      window.location.href = `decals.html#${query}`;
+    // If query is a number 1–88, smoothly scroll to that decal
+    if (/^\d+$/.test(query) && parseInt(query) >= 1 && parseInt(query) <= decalImages.length) {
+      scrollToDecal(query);
       return;
     }
 
@@ -110,4 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Enter") runSearch();
   });
 });
+</script>
+</body>
+</html>
 </script>
