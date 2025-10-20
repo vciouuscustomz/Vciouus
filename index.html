@@ -99,75 +99,59 @@
   <!-- Search Box -->
    <!-- Search Box -->
     <!-- Search Box -->
-  <div id="searchBox">
-    <input type="text" id="searchInput" placeholder="Search products or pages...">
-    <button onclick="searchSite()">Go</button>
-    <div id="searchResults" style="margin-top: 10px;"></div>
-  </div>
-
-  <!-- Logo -->
-  <div class="logo">
-    <img src="logo.png" alt="VCIOUUS CUSTOMZ Logo">
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    Thank you for being here, God bless
-  </footer>
-
   <script>
-    // Pages and products to search
-    const siteItems = [
-      // Main Pages
-      { title: "Home", url: "index.html" },
-      { title: "Shop", url: "shop.html" },
-      { title: "Contact", url: "contact.html" },
-      { title: "Ready 2 Ship", url: "ready-to-ship.html" },
-      { title: "Snow Globe Cups", url: "snowglobecups.html" },
-      { title: "Decals", url: "decals.html" },
-      { title: "Hoodies", url: "hoodies.html" },
-      { title: "Raffle Tickets", url: "raffle.html" },
-    ];
+  // Pages and products to search
+  const siteItems = [
+    // Main Pages
+    { title: "Home", url: "index.html" },
+    { title: "Shop", url: "shop.html" },
+    { title: "Contact", url: "contact.html" },
+    { title: "Ready 2 Ship", url: "ready-to-ship.html" },
+    { title: "Snow Globe Cups", url: "snowglobecups.html" },
+    { title: "Decals", url: "decals.html" },
+    { title: "Hoodies", url: "hoodies.html" },
+    { title: "Raffle Tickets", url: "raffle.html" },
+  ];
 
-    // Auto-generate Decal entries (#1–#88)
-    for (let i = 1; i <= 88; i++) {
-      siteItems.push({
-        title: "Decal #" + i,
-        url: "decals.html#decal" + i
-      });
+  // Auto-generate numbered Decal entries (#1–#88)
+  for (let i = 1; i <= 88; i++) {
+    siteItems.push({
+      title: "#" + i,
+      url: "decals.html#" + i  // note: no "decal" prefix here
+    });
+  }
+
+  function toggleSearch() {
+    const box = document.getElementById("searchBox");
+    box.style.display = (box.style.display === "none" || box.style.display === "") ? "block" : "none";
+    document.getElementById("searchInput").focus();
+  }
+
+  function searchSite() {
+    const query = document.getElementById("searchInput").value.toLowerCase().trim();
+    const resultsDiv = document.getElementById("searchResults");
+    resultsDiv.innerHTML = "";
+
+    if (!query) {
+      resultsDiv.innerHTML = "<em>Type something to search.</em>";
+      return;
     }
 
-    function toggleSearch() {
-      const box = document.getElementById("searchBox");
-      box.style.display = (box.style.display === "none" || box.style.display === "") ? "block" : "none";
-      document.getElementById("searchInput").focus();
+    const results = siteItems.filter(item =>
+      item.title.toLowerCase().includes(query)
+    );
+
+    if (results.length === 0) {
+      resultsDiv.innerHTML = "<em>No results found.</em>";
+    } else {
+      resultsDiv.innerHTML = results
+        .map(r => `<a href="${r.url}" style="color:#1e90ff; display:block; margin:5px 0;">${r.title}</a>`)
+        .join("");
     }
+  }
 
-    function searchSite() {
-      const query = document.getElementById("searchInput").value.toLowerCase().trim();
-      const resultsDiv = document.getElementById("searchResults");
-      resultsDiv.innerHTML = "";
-
-      if (!query) {
-        resultsDiv.innerHTML = "<em>Type something to search.</em>";
-        return;
-      }
-
-      const results = siteItems.filter(item =>
-        item.title.toLowerCase().includes(query)
-      );
-
-      if (results.length === 0) {
-        resultsDiv.innerHTML = "<em>No results found.</em>";
-      } else {
-        resultsDiv.innerHTML = results
-          .map(r => `<a href="${r.url}" style="color:#1e90ff; display:block; margin:5px 0;">${r.title}</a>`)
-          .join("");
-      }
-    }
-
-    // Enable live search as user types
-    document.getElementById("searchInput").addEventListener("input", searchSite);
-  </script>
+  // Enable live search as user types
+  document.getElementById("searchInput").addEventListener("input", searchSite);
+</script>
 </body>
 </html>
