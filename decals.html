@@ -46,3 +46,68 @@
   <a href="shop.html" style="color:#00aaff;">⬅ Back to Our Shop</a>
 </body>
 </html>
+
+<!-- Place this at the bottom of decals.html, just before </body> -->
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const searchBox = document.getElementById("searchBox");
+  const searchInput = document.getElementById("searchInput");
+  const searchBtn = document.getElementById("searchBtn");
+  const searchResults = document.getElementById("searchResults");
+
+  // Toggle visibility of the search box
+  window.toggleSearch = function() {
+    if (searchBox.style.display === "none" || searchBox.style.display === "") {
+      searchBox.style.display = "block";
+      searchInput.focus();
+    } else {
+      searchBox.style.display = "none";
+      searchResults.innerHTML = "";
+    }
+  };
+
+  // Assign IDs to decals automatically
+  const decals = document.querySelectorAll('.decal'); // make sure your decals have class="decal"
+  decals.forEach((decal, index) => {
+    decal.id = (index + 1).toString(); // IDs: 1, 2, 3, ...
+  });
+
+  // Run the search
+  function runSearch() {
+    const query = searchInput.value.trim();
+
+    // If query is a number 1–88, jump to that decal
+    if (/^\d+$/.test(query) && parseInt(query) >= 1 && parseInt(query) <= decals.length) {
+      window.location.href = `decals.html#${query}`;
+      return;
+    }
+
+    // Otherwise, search other site pages
+    const siteItems = [
+      { title: "Home", url: "index.html" },
+      { title: "Shop", url: "shop.html" },
+      { title: "Contact", url: "contact.html" },
+      { title: "Ready 2 Ship", url: "ready-to-ship.html" },
+      { title: "Snow Globe Cups", url: "snowglobecups.html" },
+      { title: "Decals", url: "decals.html" },
+      { title: "Hoodies", url: "hoodies.html" },
+      { title: "Raffle Tickets", url: "raffle.html" }
+    ];
+
+    const results = siteItems.filter(item =>
+      item.title.toLowerCase().includes(query.toLowerCase())
+    );
+
+    searchResults.innerHTML = results.length
+      ? results.map(r => `<a href="${r.url}" style="color:#1e90ff; display:block; margin:5px 0;">${r.title}</a>`).join("")
+      : "<em>No results found.</em>";
+  }
+
+  // Trigger search on button click or Enter key
+  searchBtn.addEventListener("click", runSearch);
+  searchInput.addEventListener("keyup", e => {
+    if (e.key === "Enter") runSearch();
+  });
+});
+</script>
