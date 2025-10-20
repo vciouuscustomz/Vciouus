@@ -13,9 +13,7 @@
       margin: 0;
       padding: 40px;
     }
-    h1 {
-      margin-bottom: 20px;
-    }
+    h1 { margin-bottom: 20px; }
     .category-button {
       display: block;
       border: 2px solid #00aaff;
@@ -27,43 +25,16 @@
       border-radius: 8px;
       transition: background-color 0.3s, color 0.3s;
     }
-    .category-button:hover {
-      background-color: #00aaff;
-      color: black;
-    }
-    /* Search bar styles */
-    #searchBox {
-      margin-bottom: 30px;
-    }
-    #searchBox input {
-      padding: 8px;
-      font-size: 16px;
-      width: 200px;
-    }
+    .category-button:hover { background-color: #00aaff; color: black; }
+    #searchBox { margin-bottom: 30px; }
+    #searchBox input { padding: 8px; font-size: 16px; width: 200px; }
     #searchBox button {
-      padding: 8px 12px;
-      font-size: 16px;
-      background-color: #00aaff;
-      color: black;
-      border: none;
-      cursor: pointer;
-      margin-left: 5px;
-      border-radius: 4px;
+      padding: 8px 12px; font-size: 16px; background-color: #00aaff;
+      color: black; border: none; cursor: pointer; margin-left: 5px; border-radius: 4px;
     }
-    #searchResults {
-      margin-top: 10px;
-      font-size: 16px;
-    }
-    a.back-link {
-      color: #00aaff;
-      display: block;
-      margin-top: 40px;
-      text-decoration: none;
-      font-size: 18px;
-    }
-    a.back-link:hover {
-      text-decoration: underline;
-    }
+    #searchResults { margin-top: 10px; font-size: 16px; }
+    a.back-link { color: #00aaff; display: block; margin-top: 40px; text-decoration: none; font-size: 18px; }
+    a.back-link:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -93,27 +64,46 @@
       const searchBtn = document.getElementById("searchBtn");
       const searchResults = document.getElementById("searchResults");
 
+      // Mapping decal numbers to their category pages
+      const decalMap = {
+        1: ["decals-holidays.html"],
+        2: ["decals-sports.html"],
+        3: ["decals-aesthetic.html"],
+        4: ["decals-characters.html", "decals-aesthetic.html"],
+        5: ["decals-animals.html"]
+        // Add all other numbers here
+      };
+
+      // Site pages for text search
+      const siteItems = [
+        { title: "Home", url: "index.html" },
+        { title: "Shop", url: "shop.html" },
+        { title: "Contact", url: "contact.html" },
+        { title: "Ready 2 Ship", url: "ready-to-ship.html" },
+        { title: "Snow Globe Cups", url: "snowglobecups.html" },
+        { title: "Decals", url: "decals.html" },
+        { title: "Hoodies", url: "hoodies.html" },
+        { title: "Raffle Tickets", url: "raffle.html" }
+      ];
+
       function runSearch() {
         const query = searchInput.value.trim();
 
-        // If query is a number 1–88, redirect to decals.html#number
-        if (/^\d+$/.test(query) && parseInt(query) >= 1 && parseInt(query) <= 88) {
-          window.location.href = `decals.html#${query}`;
-          return;
+        if (/^\d+$/.test(query)) {
+          const num = parseInt(query);
+          if (decalMap[num]) {
+            // Show links to all categories containing this decal
+            searchResults.innerHTML = decalMap[num].map(url => 
+              `<a href="${url}" style="color:#1e90ff; display:block; margin:5px 0;">Decal #${num} - Click here</a>`
+            ).join("");
+            return;
+          } else {
+            searchResults.innerHTML = `<em>Decal #${num} not found in any category.</em>`;
+            return;
+          }
         }
 
-        // Otherwise, search other site pages
-        const siteItems = [
-          { title: "Home", url: "index.html" },
-          { title: "Shop", url: "shop.html" },
-          { title: "Contact", url: "contact.html" },
-          { title: "Ready 2 Ship", url: "ready-to-ship.html" },
-          { title: "Snow Globe Cups", url: "snowglobecups.html" },
-          { title: "Decals", url: "decals.html" },
-          { title: "Hoodies", url: "hoodies.html" },
-          { title: "Raffle Tickets", url: "raffle.html" }
-        ];
-
+        // Otherwise, search site pages
         const results = siteItems.filter(item =>
           item.title.toLowerCase().includes(query.toLowerCase())
         );
@@ -124,9 +114,7 @@
       }
 
       searchBtn.addEventListener("click", runSearch);
-      searchInput.addEventListener("keyup", e => {
-        if (e.key === "Enter") runSearch();
-      });
+      searchInput.addEventListener("keyup", e => { if (e.key === "Enter") runSearch(); });
     });
   </script>
 
