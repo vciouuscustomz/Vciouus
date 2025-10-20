@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Fix zoom issue -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VCIOUUS CUSTOMZ</title>
   <style>
     body {
@@ -51,8 +51,8 @@
     }
 
     .logo img {
-      width: 500px;   /* Large logo */
-      max-width: 95%; /* Scale on mobile */
+      width: 500px;
+      max-width: 95%;
       height: auto;
     }
 
@@ -62,7 +62,7 @@
       font-size: 22px;
     }
 
-    /* Search box (hidden until clicked) */
+    /* Search box */
     #searchBox {
       display: none;
       margin-top: 15px;
@@ -80,6 +80,11 @@
       border: none;
       cursor: pointer;
     }
+
+    #searchResults {
+      margin-top: 10px;
+      font-size: 18px;
+    }
   </style>
 </head>
 <body>
@@ -92,66 +97,92 @@
 
   <!-- Processing message -->
   <div class="processing">
-    5-11 business days processing time. Add decal (optional) and cup to your cart. 
-    Add glitter colors to notes/ lava color 
+    5-11 business days processing time. Add decal (optional) and cup to your cart.
+    Add glitter colors to notes/ lava color
   </div>
 
   <!-- Search Box -->
-   <!-- Search Box -->
-    <!-- Search Box -->
+  <div id="searchBox">
+    <input type="text" id="searchInput" placeholder="Search by decal number...">
+    <button id="searchBtn">Go</button>
+    <div id="searchResults"></div>
+  </div>
+
+  <!-- Logo -->
+  <div class="logo">
+    <img src="logo.png" alt="VCIOUUS CUSTOMZ Logo">
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    Thank you for being here, God bless
+  </footer>
+
+  <!-- Script -->
   <script>
-  // Pages and products to search
-  const siteItems = [
-    // Main Pages
-    { title: "Home", url: "index.html" },
-    { title: "Shop", url: "shop.html" },
-    { title: "Contact", url: "contact.html" },
-    { title: "Ready 2 Ship", url: "ready-to-ship.html" },
-    { title: "Snow Globe Cups", url: "snowglobecups.html" },
-    { title: "Decals", url: "decals.html" },
-    { title: "Hoodies", url: "hoodies.html" },
-    { title: "Raffle Tickets", url: "raffle.html" },
-  ];
+    document.addEventListener("DOMContentLoaded", () => {
+      // Pages and products
+      const siteItems = [
+        { title: "Home", url: "index.html" },
+        { title: "Shop", url: "shop.html" },
+        { title: "Contact", url: "contact.html" },
+        { title: "Ready 2 Ship", url: "ready-to-ship.html" },
+        { title: "Snow Globe Cups", url: "snowglobecups.html" },
+        { title: "Decals", url: "decals.html" },
+        { title: "Hoodies", url: "hoodies.html" },
+        { title: "Raffle Tickets", url: "raffle.html" }
+      ];
 
-  // Auto-generate numbered Decal entries (#1–#88)
-  for (let i = 1; i <= 88; i++) {
-    siteItems.push({
-      title: "#" + i,
-      url: "decals.html#" + i  // note: no "decal" prefix here
+      // Add Decals #1–#88
+      for (let i = 1; i <= 88; i++) {
+        siteItems.push({ title: "#" + i, url: "decals.html#" + i });
+      }
+
+      const searchBox = document.getElementById("searchBox");
+      const searchInput = document.getElementById("searchInput");
+      const searchResults = document.getElementById("searchResults");
+      const searchBtn = document.getElementById("searchBtn");
+
+      // Toggle visibility
+      window.toggleSearch = function() {
+        if (searchBox.style.display === "none" || searchBox.style.display === "") {
+          searchBox.style.display = "block";
+          searchInput.focus();
+        } else {
+          searchBox.style.display = "none";
+          searchResults.innerHTML = "";
+        }
+      };
+
+      // Run search
+      function runSearch() {
+        const query = searchInput.value.toLowerCase().trim();
+        searchResults.innerHTML = "";
+
+        if (!query) {
+          searchResults.innerHTML = "<em>Type something to search.</em>";
+          return;
+        }
+
+        const results = siteItems.filter(item =>
+          item.title.toLowerCase().includes(query)
+        );
+
+        if (results.length === 0) {
+          searchResults.innerHTML = "<em>No results found.</em>";
+        } else {
+          searchResults.innerHTML = results
+            .map(r => `<a href="${r.url}" style="color:#1e90ff; display:block; margin:5px 0;">${r.title}</a>`)
+            .join("");
+        }
+      }
+
+      // Click + Enter listeners
+      searchBtn.addEventListener("click", runSearch);
+      searchInput.addEventListener("keyup", e => {
+        if (e.key === "Enter") runSearch();
+      });
     });
-  }
-
-  function toggleSearch() {
-    const box = document.getElementById("searchBox");
-    box.style.display = (box.style.display === "none" || box.style.display === "") ? "block" : "none";
-    document.getElementById("searchInput").focus();
-  }
-
-  function searchSite() {
-    const query = document.getElementById("searchInput").value.toLowerCase().trim();
-    const resultsDiv = document.getElementById("searchResults");
-    resultsDiv.innerHTML = "";
-
-    if (!query) {
-      resultsDiv.innerHTML = "<em>Type something to search.</em>";
-      return;
-    }
-
-    const results = siteItems.filter(item =>
-      item.title.toLowerCase().includes(query)
-    );
-
-    if (results.length === 0) {
-      resultsDiv.innerHTML = "<em>No results found.</em>";
-    } else {
-      resultsDiv.innerHTML = results
-        .map(r => `<a href="${r.url}" style="color:#1e90ff; display:block; margin:5px 0;">${r.title}</a>`)
-        .join("");
-    }
-  }
-
-  // Enable live search as user types
-  document.getElementById("searchInput").addEventListener("input", searchSite);
-</script>
+  </script>
 </body>
 </html>
