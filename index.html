@@ -98,6 +98,7 @@
 
   <!-- Search Box -->
    <!-- Search Box -->
+    <!-- Search Box -->
   <div id="searchBox">
     <input type="text" id="searchInput" placeholder="Search products or pages...">
     <button onclick="searchSite()">Go</button>
@@ -115,18 +116,26 @@
   </footer>
 
   <script>
-    // Products and pages to search
+    // Pages and products to search
     const siteItems = [
+      // Main Pages
       { title: "Home", url: "index.html" },
       { title: "Shop", url: "shop.html" },
       { title: "Contact", url: "contact.html" },
       { title: "Ready 2 Ship", url: "ready-to-ship.html" },
       { title: "Snow Globe Cups", url: "snowglobecups.html" },
       { title: "Decals", url: "decals.html" },
-      { title: "Aesthetic Decals", url: "aesthetic.html" },
       { title: "Hoodies", url: "hoodies.html" },
-      { title: "Raffle Tickets", url: "raffle.html" }
+      { title: "Raffle Tickets", url: "raffle.html" },
     ];
+
+    // Auto-generate Decal entries (#1–#88)
+    for (let i = 1; i <= 88; i++) {
+      siteItems.push({
+        title: "Decal #" + i,
+        url: "decals.html#decal" + i
+      });
+    }
 
     function toggleSearch() {
       const box = document.getElementById("searchBox");
@@ -137,7 +146,7 @@
     function searchSite() {
       const query = document.getElementById("searchInput").value.toLowerCase().trim();
       const resultsDiv = document.getElementById("searchResults");
-      resultsDiv.innerHTML = ""; // clear old results
+      resultsDiv.innerHTML = "";
 
       if (!query) {
         resultsDiv.innerHTML = "<em>Type something to search.</em>";
@@ -157,7 +166,7 @@
       }
     }
 
-    // Optional: Search live as user types
+    // Enable live search as user types
     document.getElementById("searchInput").addEventListener("input", searchSite);
   </script>
 </body>
