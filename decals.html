@@ -14,7 +14,7 @@
       padding: 40px;
     }
     h1 {
-      margin-bottom: 40px;
+      margin-bottom: 20px;
     }
     .category-button {
       display: block;
@@ -31,94 +31,104 @@
       background-color: #00aaff;
       color: black;
     }
+    /* Search bar styles */
+    #searchBox {
+      margin-bottom: 30px;
+    }
+    #searchBox input {
+      padding: 8px;
+      font-size: 16px;
+      width: 200px;
+    }
+    #searchBox button {
+      padding: 8px 12px;
+      font-size: 16px;
+      background-color: #00aaff;
+      color: black;
+      border: none;
+      cursor: pointer;
+      margin-left: 5px;
+      border-radius: 4px;
+    }
+    #searchResults {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    a.back-link {
+      color: #00aaff;
+      display: block;
+      margin-top: 40px;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    a.back-link:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
+
   <h1>Decal Themes</h1>
 
+  <!-- Search Box -->
+  <div id="searchBox">
+    <input type="text" id="searchInput" placeholder="Search by decal number or page...">
+    <button id="searchBtn">Go</button>
+    <div id="searchResults"></div>
+  </div>
+
+  <!-- Category Buttons -->
   <a href="decals-holidays.html" class="category-button">🎄 Holidays</a>
   <a href="decals-sports.html" class="category-button">🏈 Sports</a>
   <a href="decals-characters.html" class="category-button">🧍 Characters/People</a>
   <a href="decals-aesthetic.html" class="category-button">✨ Aesthetic/Animals/Quotes</a>
-  <a href="decals-animals.html" class="category-button">👷‍♂️Careers</a>
+  <a href="decals-animals.html" class="category-button">👷‍♂️ Careers</a>
 
-  <br><br>
-  <a href="shop.html" style="color:#00aaff;">⬅ Back to Our Shop</a>
+  <a href="shop.html" class="back-link">⬅ Back to Our Shop</a>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const searchBox = document.getElementById("searchBox");
-  const searchInput = document.getElementById("searchInput");
-  const searchBtn = document.getElementById("searchBtn");
-  const searchResults = document.getElementById("searchResults");
+  <!-- Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const searchInput = document.getElementById("searchInput");
+      const searchBtn = document.getElementById("searchBtn");
+      const searchResults = document.getElementById("searchResults");
 
-  // Toggle visibility of the search box
-  window.toggleSearch = function() {
-    if (searchBox.style.display === "none" || searchBox.style.display === "") {
-      searchBox.style.display = "block";
-      searchInput.focus();
-    } else {
-      searchBox.style.display = "none";
-      searchResults.innerHTML = "";
-    }
-  };
+      function runSearch() {
+        const query = searchInput.value.trim();
 
-  // Wrap all decal images in divs and assign IDs
-  const decalImages = document.querySelectorAll('#decalsContainer img');
-  decalImages.forEach((img, index) => {
-    const wrapper = document.createElement('div');
-    wrapper.className = 'decal';
-    wrapper.id = (index + 1).toString();
-    img.parentNode.insertBefore(wrapper, img);
-    wrapper.appendChild(img);
-  });
+        // If query is a number 1–88, redirect to decals.html#number
+        if (/^\d+$/.test(query) && parseInt(query) >= 1 && parseInt(query) <= 88) {
+          window.location.href = `decals.html#${query}`;
+          return;
+        }
 
-  // Smooth scroll to decal function
-  function scrollToDecal(id) {
-    const decal = document.getElementById(id);
-    if (decal) {
-      decal.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
+        // Otherwise, search other site pages
+        const siteItems = [
+          { title: "Home", url: "index.html" },
+          { title: "Shop", url: "shop.html" },
+          { title: "Contact", url: "contact.html" },
+          { title: "Ready 2 Ship", url: "ready-to-ship.html" },
+          { title: "Snow Globe Cups", url: "snowglobecups.html" },
+          { title: "Decals", url: "decals.html" },
+          { title: "Hoodies", url: "hoodies.html" },
+          { title: "Raffle Tickets", url: "raffle.html" }
+        ];
 
-  // Run the search
-  function runSearch() {
-    const query = searchInput.value.trim();
+        const results = siteItems.filter(item =>
+          item.title.toLowerCase().includes(query.toLowerCase())
+        );
 
-    // If query is a number 1–88, smoothly scroll to that decal
-    if (/^\d+$/.test(query) && parseInt(query) >= 1 && parseInt(query) <= decalImages.length) {
-      scrollToDecal(query);
-      return;
-    }
+        searchResults.innerHTML = results.length
+          ? results.map(r => `<a href="${r.url}" style="color:#1e90ff; display:block; margin:5px 0;">${r.title}</a>`).join("")
+          : "<em>No results found.</em>";
+      }
 
-    // Otherwise, search other site pages
-    const siteItems = [
-      { title: "Home", url: "index.html" },
-      { title: "Shop", url: "shop.html" },
-      { title: "Contact", url: "contact.html" },
-      { title: "Ready 2 Ship", url: "ready-to-ship.html" },
-      { title: "Snow Globe Cups", url: "snowglobecups.html" },
-      { title: "Decals", url: "decals.html" },
-      { title: "Hoodies", url: "hoodies.html" },
-      { title: "Raffle Tickets", url: "raffle.html" }
-    ];
+      searchBtn.addEventListener("click", runSearch);
+      searchInput.addEventListener("keyup", e => {
+        if (e.key === "Enter") runSearch();
+      });
+    });
+  </script>
 
-    const results = siteItems.filter(item =>
-      item.title.toLowerCase().includes(query.toLowerCase())
-    );
-
-    searchResults.innerHTML = results.length
-      ? results.map(r => `<a href="${r.url}" style="color:#1e90ff; display:block; margin:5px 0;">${r.title}</a>`).join("")
-      : "<em>No results found.</em>";
-  }
-
-  // Trigger search on button click or Enter key
-  searchBtn.addEventListener("click", runSearch);
-  searchInput.addEventListener("keyup", e => {
-    if (e.key === "Enter") runSearch();
-  });
-});
-</script>
 </body>
 </html>
-</script>
