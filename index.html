@@ -97,9 +97,11 @@
   </div>
 
   <!-- Search Box -->
+   <!-- Search Box -->
   <div id="searchBox">
-    <input type="text" id="searchInput" placeholder="Search pages...">
+    <input type="text" id="searchInput" placeholder="Search products or pages...">
     <button onclick="searchSite()">Go</button>
+    <div id="searchResults" style="margin-top: 10px;"></div>
   </div>
 
   <!-- Logo -->
@@ -113,29 +115,50 @@
   </footer>
 
   <script>
-    // Pages to search
-    const sitePages = [
+    // Products and pages to search
+    const siteItems = [
       { title: "Home", url: "index.html" },
       { title: "Shop", url: "shop.html" },
       { title: "Contact", url: "contact.html" },
-      { title: "Ready to Ship", url: "ready-to-ship.html" }
+      { title: "Ready 2 Ship", url: "ready-to-ship.html" },
+      { title: "Snow Globe Cups", url: "snowglobecups.html" },
+      { title: "Decals", url: "decals.html" },
+      { title: "Aesthetic Decals", url: "aesthetic.html" },
+      { title: "Hoodies", url: "hoodies.html" },
+      { title: "Raffle Tickets", url: "raffle.html" }
     ];
 
     function toggleSearch() {
       const box = document.getElementById("searchBox");
       box.style.display = (box.style.display === "none" || box.style.display === "") ? "block" : "none";
+      document.getElementById("searchInput").focus();
     }
 
     function searchSite() {
-      let query = document.getElementById("searchInput").value.toLowerCase();
-      let match = sitePages.find(page => page.title.toLowerCase().includes(query));
-      
-      if (match) {
-        window.location.href = match.url;
+      const query = document.getElementById("searchInput").value.toLowerCase().trim();
+      const resultsDiv = document.getElementById("searchResults");
+      resultsDiv.innerHTML = ""; // clear old results
+
+      if (!query) {
+        resultsDiv.innerHTML = "<em>Type something to search.</em>";
+        return;
+      }
+
+      const results = siteItems.filter(item =>
+        item.title.toLowerCase().includes(query)
+      );
+
+      if (results.length === 0) {
+        resultsDiv.innerHTML = "<em>No results found.</em>";
       } else {
-        alert("No page found. Try: Home, Shop, Contact, or Ready to Ship.");
+        resultsDiv.innerHTML = results
+          .map(r => `<a href="${r.url}" style="color:#1e90ff; display:block; margin:5px 0;">${r.title}</a>`)
+          .join("");
       }
     }
+
+    // Optional: Search live as user types
+    document.getElementById("searchInput").addEventListener("input", searchSite);
   </script>
 </body>
 </html>
