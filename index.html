@@ -120,69 +120,60 @@
 
   <!-- Script -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // Pages and products
-      const siteItems = [
-        { title: "Home", url: "index.html" },
-        { title: "Shop", url: "shop.html" },
-        { title: "Contact", url: "contact.html" },
-        { title: "Ready 2 Ship", url: "ready-to-ship.html" },
-        { title: "Snow Globe Cups", url: "snowglobecups.html" },
-        { title: "Decals", url: "decals.html" },
-        { title: "Hoodies", url: "hoodies.html" },
-        { title: "Raffle Tickets", url: "raffle.html" }
-      ];
+document.addEventListener("DOMContentLoaded", () => {
+  const searchBox = document.getElementById("searchBox");
+  const searchInput = document.getElementById("searchInput");
+  const searchBtn = document.getElementById("searchBtn");
+  const searchResults = document.getElementById("searchResults");
 
-      // Add Decals #1–#88
-      for (let i = 1; i <= 88; i++) {
-        siteItems.push({ title: "#" + i, url: "decals.html#" + i });
-      }
+  // Toggle visibility of the search box
+  window.toggleSearch = function() {
+    if (searchBox.style.display === "none" || searchBox.style.display === "") {
+      searchBox.style.display = "block";
+      searchInput.focus();
+    } else {
+      searchBox.style.display = "none";
+      searchResults.innerHTML = "";
+    }
+  };
 
-      const searchBox = document.getElementById("searchBox");
-      const searchInput = document.getElementById("searchInput");
-      const searchResults = document.getElementById("searchResults");
-      const searchBtn = document.getElementById("searchBtn");
+  // Run the search
+  function runSearch() {
+    const query = searchInput.value.trim();
 
-      // Toggle visibility
-      window.toggleSearch = function() {
-        if (searchBox.style.display === "none" || searchBox.style.display === "") {
-          searchBox.style.display = "block";
-          searchInput.focus();
-        } else {
-          searchBox.style.display = "none";
-          searchResults.innerHTML = "";
-        }
-      };
+    // If query is a number 1–88, jump to that decal on decals page
+    if (/^\d+$/.test(query) && parseInt(query) >= 1 && parseInt(query) <= 88) {
+      window.location.href = `decals.html#${query}`;
+      return;
+    }
 
-      // Run search
-      function runSearch() {
-        const query = searchInput.value.toLowerCase().trim();
-        searchResults.innerHTML = "";
+    // Otherwise, search through other site pages
+    const siteItems = [
+      { title: "Home", url: "index.html" },
+      { title: "Shop", url: "shop.html" },
+      { title: "Contact", url: "contact.html" },
+      { title: "Ready 2 Ship", url: "ready-to-ship.html" },
+      { title: "Snow Globe Cups", url: "snowglobecups.html" },
+      { title: "Decals", url: "decals.html" },
+      { title: "Hoodies", url: "hoodies.html" },
+      { title: "Raffle Tickets", url: "raffle.html" }
+    ];
 
-        if (!query) {
-          searchResults.innerHTML = "<em>Type something to search.</em>";
-          return;
-        }
+    const results = siteItems.filter(item =>
+      item.title.toLowerCase().includes(query.toLowerCase())
+    );
 
-        const results = siteItems.filter(item =>
-          item.title.toLowerCase().includes(query)
-        );
+    searchResults.innerHTML = results.length
+      ? results.map(r => `<a href="${r.url}" style="color:#1e90ff; display:block; margin:5px 0;">${r.title}</a>`).join("")
+      : "<em>No results found.</em>";
+  }
 
-        if (results.length === 0) {
-          searchResults.innerHTML = "<em>No results found.</em>";
-        } else {
-          searchResults.innerHTML = results
-            .map(r => `<a href="${r.url}" style="color:#1e90ff; display:block; margin:5px 0;">${r.title}</a>`)
-            .join("");
-        }
-      }
-
-      // Click + Enter listeners
-      searchBtn.addEventListener("click", runSearch);
-      searchInput.addEventListener("keyup", e => {
-        if (e.key === "Enter") runSearch();
-      });
-    });
-  </script>
+  // Trigger search on button click or Enter key
+  searchBtn.addEventListener("click", runSearch);
+  searchInput.addEventListener("keyup", e => {
+    if (e.key === "Enter") runSearch();
+  });
+});
+</script>
 </body>
 </html>
